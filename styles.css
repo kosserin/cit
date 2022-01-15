@@ -402,7 +402,7 @@ nav .nav-burger .line3 {
 .landing-page__header {
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(45deg, black, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url("../assets/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat center;
+  background: linear-gradient(45deg, black, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url("/assets/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat center;
   background-size: cover;
 }
 
