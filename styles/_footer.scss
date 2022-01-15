@@ -1,0 +1,126 @@
+@import "./colors";
+@import "./media-queries";
+
+footer {
+  width: 100vw;
+  padding: 3rem 5vw;
+  background: $blue;
+  display: grid;
+  grid-template-areas:
+    "logo first second kontakt"
+    "logo first second kontakt";
+
+  @include miniLaptop {
+    padding: 3rem 2.5vw;
+  }
+
+  @include mini {
+    grid-template-areas:
+      "logo logo logo logo"
+      "kontakt kontakt first second";
+  }
+
+  @include tablet {
+    grid-gap: 2rem;
+    grid-template-areas:
+      "logo"
+      "kontakt"
+      "first"
+      "second";
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+    grid-area: logo;
+    transition: 250ms ease;
+
+    &:hover {
+      color: $sky;
+    }
+
+    .logo-shortcut {
+      font-size: 2.25rem;
+    }
+
+    .logo-text {
+      max-width: 300px;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .footer-kontakt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-self: center;
+    grid-area: kontakt;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      i {
+        color: $sky;
+        font-size: 1.3rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: $white;
+        font-weight: 500;
+        font-size: 0.875rem;
+        transition: 250ms ease;
+
+        &:hover {
+          color: $sky;
+        }
+      }
+    }
+  }
+
+  .footer-links {
+    &.first-footer-links {
+      grid-area: first;
+    }
+    &.second-footer-links {
+      grid-area: second;
+    }
+
+    h4 {
+      color: $white;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $white;
+          transition: 250ms ease;
+          font-weight: 500;
+          font-size: 0.875rem;
+
+          &:hover {
+            color: $sky;
+          }
+        }
+      }
+    }
+  }
+}
+
+.copyright {
+  background-color: #11232b;
+  color: $white;
+  text-align: center;
+  padding: 0.5rem 0;
+}

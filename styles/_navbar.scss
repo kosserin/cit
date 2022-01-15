@@ -1,0 +1,190 @@
+@import "./colors";
+@import "./media-queries";
+
+nav {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  justify-content: space-between;
+  color: $white;
+  z-index: 3;
+
+  @include miniLaptop {
+    padding: 0 2.5vw;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+    transition: 250ms ease;
+
+    &:hover {
+      color: $sky;
+    }
+
+    .logo-shortcut {
+      font-size: 2.25rem;
+    }
+
+    .logo-text {
+      max-width: 300px;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    position: relative;
+
+    @include mini {
+      background: rgba($blue, 1);
+      position: absolute;
+      flex-direction: column;
+      width: 100vw;
+      left: 0;
+      top: 10vh;
+      height: 90vh;
+      padding-left: 5vw;
+      padding-top: 5vh;
+      transform: translateX(-100%);
+      transition: transform 500ms ease;
+
+      &.show-nav {
+        transform: translateX(0);
+      }
+    }
+
+    & > li {
+      transition: 250ms ease;
+
+      @include mini {
+        opacity: 0;
+
+        &.add-margin {
+          margin-top: 180px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: $white;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: 250ms ease;
+
+        @include mini {
+          text-transform: uppercase;
+          font-weight: 800;
+          font-size: 2rem;
+        }
+
+        &.dropdown-link {
+          position: relative;
+        }
+
+        &:hover {
+          color: $sky;
+        }
+
+        i {
+          transition: 250ms ease;
+          &.rotate-chevron {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        position: absolute;
+        background: $blue;
+        border-radius: 3px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: 250ms ease;
+
+        &.second-dropdown-links {
+          right: 0;
+
+          @include miniLaptop {
+            right: auto;
+          }
+        }
+
+        &.show-links {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: all;
+        }
+
+        li {
+          a {
+            color: $white;
+            display: inline-block;
+            padding: 0.25rem 2rem;
+            width: 100%;
+
+            &:first-of-type {
+              padding-top: 0.5rem;
+            }
+
+            &:last-of-type {
+              padding-bottom: 0.5rem;
+            }
+
+            &:hover {
+              background: rgba($black, 0.3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-burger {
+    display: none;
+    cursor: pointer;
+
+    @include mini {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 30px;
+    }
+
+    div {
+      background: $white;
+      height: 2.5px;
+    }
+
+    .line1 {
+      width: 100%;
+    }
+
+    .line2 {
+      width: 66%;
+    }
+
+    .line3 {
+      width: 33%;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,116 @@
+@import "./styles/colors";
+@import "./styles/media-queries";
+@import "./styles/footer";
+@import "./styles/navbar";
+@import "./styles/landing-page";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body,
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.fade-in {
+  transition: 1500ms ease !important;
+  opacity: 0;
+
+  @include tablet {
+    transition: 1000ms ease !important;
+  }
+}
+
+.slide-in {
+  transform: translateX(-30px);
+
+  @include tablet {
+    transform: translateX(-10px);
+  }
+}
+
+.appear {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+
+  @include tablet {
+    font-size: 2.5rem;
+  }
+
+  @include phone {
+    font-size: 1.875rem;
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+
+  @include phone {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  @include phone {
+    font-size: 1.125rem;
+  }
+}
+
+h4 {
+  font-size: 1.125rem;
+  font-weight: 500;
+
+  @include phone {
+    font-size: 1rem;
+  }
+}
+
+p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.cta-button {
+  text-decoration: none;
+  color: $white;
+  background: $blue;
+  border-radius: 3px;
+  display: flex;
+  width: fit-content;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0 2rem;
+  transition: 250ms ease;
+
+  i {
+    margin-left: 6px;
+    transition: 250ms ease;
+  }
+
+  &:hover {
+    background: #1d3c49;
+  }
+
+  &:hover i {
+    transform: translateX(6px);
+  }
+}
