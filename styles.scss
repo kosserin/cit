@@ -3,6 +3,13 @@
 @import "./styles/footer";
 @import "./styles/navbar";
 @import "./styles/landing-page";
+@import "./styles/novosti";
+@import "./styles/o_nama";
+@import "./styles/rapid_prototyping";
+@import "./styles/telekonferencija";
+@import "./styles/hidroinformatika";
+@import "./styles/zaposleni";
+@import "./styles/vest";
 
 * {
   margin: 0;
@@ -18,16 +25,12 @@ html {
 }
 
 .fade-in {
-  transition: 1500ms ease !important;
+  transition: 750ms ease !important;
   opacity: 0;
-
-  @include tablet {
-    transition: 1000ms ease !important;
-  }
 }
 
 .slide-in {
-  transform: translateX(-30px);
+  transform: translateX(-50px);
 
   @include tablet {
     transform: translateX(-10px);
@@ -35,7 +38,7 @@ html {
 }
 
 .appear {
-  opacity: 1;
+  opacity: 1 !important;
   transform: translateX(0px);
 }
 
@@ -72,7 +75,7 @@ h3 {
 
 h4 {
   font-size: 1.125rem;
-  font-weight: 500;
+  font-weight: 600;
 
   @include phone {
     font-size: 1rem;
@@ -112,5 +115,48 @@ p {
 
   &:hover i {
     transform: translateX(6px);
+  }
+}
+
+.text-button {
+  color: $blue;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: 250ms ease;
+
+  &:hover {
+    color: #1d3c49;
+  }
+}
+
+main {
+  width: 100vw;
+  padding: 5rem 5vw;
+  background-color: $light;
+
+  @include miniLaptop {
+    padding: 5rem 2.5vw;
+  }
+}
+
+.date {
+  span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    color: $dark;
+  }
+
+  i {
+    color: $dark;
+  }
+
+  &.white-date {
+    span,
+    i {
+      color: $light;
+    }
   }
 }

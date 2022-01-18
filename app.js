@@ -8,7 +8,6 @@ const dropdownClicker = () => {
             const ul = dropdownLink.nextElementSibling;
             const iTag = dropdownLink.firstElementChild;
             const nextElement = dropdownLink.parentElement.nextElementSibling
-            console.log(nextElement)
             e.preventDefault();
             body.addEventListener('click', e => {
                 if(e.target.className !== dropdownLink.className) {
@@ -48,8 +47,6 @@ const navSlide = () =>{
 const scrollItems = () => {
     const faders = document.querySelectorAll('.fade-in');
     const sliders = document.querySelectorAll('.slide-in');
-    console.log(faders)
-
     const options = {
         rootMargin: "-200px 0px 0px 0px"
     };
@@ -61,7 +58,6 @@ const scrollItems = () => {
             } else{
                 entry.target.classList.add('appear');
                 /* appearOnScroll.unobserve(entry.target); */
-                console.log('dsds')
             }
         })
     }, options);
@@ -74,6 +70,175 @@ const scrollItems = () => {
         appearOnScroll.observe(slider)
     })
 }
+
+const rpGalleryPreview = () => {
+    const galleryImages = document.querySelectorAll('.uredjaji__uredjaji img');
+    const galleryTitles = document.querySelectorAll('.uredjaji__uredjaji p');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal-image');
+    const modalTitle = document.querySelector('.modal h4');
+    const prevBtn = document.querySelector('.modal .prev-btn');
+    const nextBtn = document.querySelector('.modal .next-btn');
+
+    let counter = 0;
+
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            counter = index;
+            modal.classList.add('show-modal');
+            modalImg.src = galleryImages[counter].src;
+            modalTitle.textContent = image.nextElementSibling.textContent;
+
+            modal.addEventListener('click', e =>{
+                if(e.target.className == 'modal show-modal') {
+                    modal.classList.remove('show-modal')
+                }
+            })
+        })
+    })
+
+    nextBtn.addEventListener('click', () => {
+        if(counter>= galleryImages.length-1){
+            counter=0;
+        } else{
+            counter++;
+        }
+        modalImg.src = galleryImages[counter].src;
+        modalTitle.textContent = galleryImages[counter].nextElementSibling.textContent
+    })
+
+    prevBtn.addEventListener('click', () => {
+        if(counter <= 0){
+            counter=galleryImages.length-1;
+        } else{
+            counter--;
+        }
+        modalImg.src = galleryImages[counter].src;
+        modalTitle.textContent = galleryImages[counter].nextElementSibling.textContent
+    })
+}
+
+const tkGalleryPreview = () => {
+    const galleryImages = document.querySelectorAll('.oprema__images img');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal-image');
+    const prevBtn = document.querySelector('.modal .prev-btn');
+    const nextBtn = document.querySelector('.modal .next-btn');
+
+    let counter = 0;
+
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            counter = index;
+            modal.classList.add('show-modal');
+            modalImg.src = galleryImages[counter].src;
+
+            modal.addEventListener('click', e =>{
+                if(e.target.className == 'modal show-modal') {
+                    modal.classList.remove('show-modal')
+                }
+            })
+        })
+    })
+
+    nextBtn.addEventListener('click', () => {
+        if(counter>= galleryImages.length-1){
+            counter=0;
+        } else{
+            counter++;
+        }
+        modalImg.src = galleryImages[counter].src;
+    })
+
+    prevBtn.addEventListener('click', () => {
+        if(counter <= 0){
+            counter=galleryImages.length-1;
+        } else{
+            counter--;
+        }
+        modalImg.src = galleryImages[counter].src;
+        modalTitle.textContent = galleryImages[counter].nextElementSibling.textContent
+    })
+}
+
+const vestGalleryPreview = () => {
+    const galleryImages = document.querySelectorAll('.gallery__container img');
+    const galleryTitles = document.querySelectorAll('.gallery__container h4');
+    const modal = document.querySelector('.modal');
+    const modalImg = document.querySelector('.modal-image');
+    const modalTitle = document.querySelector('.modal h4');
+    const prevBtn = document.querySelector('.modal .prev-btn');
+    const nextBtn = document.querySelector('.modal .next-btn');
+
+    let counter = 0;
+
+    galleryImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            counter = index;
+            modal.classList.add('show-modal');
+            modalImg.src = galleryImages[counter].src;
+            modalTitle.textContent = image.nextElementSibling.textContent;
+
+            modal.addEventListener('click', e =>{
+                if(e.target.className == 'modal show-modal') {
+                    modal.classList.remove('show-modal')
+                }
+            })
+        })
+    })
+
+    nextBtn.addEventListener('click', () => {
+        if(counter>= galleryImages.length-1){
+            counter=0;
+        } else{
+            counter++;
+        }
+        modalImg.src = galleryImages[counter].src;
+        modalTitle.textContent = galleryImages[counter].nextElementSibling.textContent
+    })
+
+    prevBtn.addEventListener('click', () => {
+        if(counter <= 0){
+            counter=galleryImages.length-1;
+        } else{
+            counter--;
+        }
+        modalImg.src = galleryImages[counter].src;
+        modalTitle.textContent = galleryImages[counter].nextElementSibling.textContent
+    })
+}
+
+if(document.querySelector('main')){
+    if(document.querySelector('main').className === 'vest-page__main'){
+        vestGalleryPreview();
+    }
+    
+    if(document.querySelector('main').className === 'rp-page__main'){
+        rpGalleryPreview();
+    }
+    
+    if(document.querySelector('main').className === 'telekonferencija-page__main'){
+        tkGalleryPreview();
+    }
+
+    const nav = document.querySelector('nav');
+    const header = document.querySelector('header');
+
+    const headerOptions = {};
+
+    const headerObserver = new IntersectionObserver(function(entries, headerObserver) {
+        entries.forEach(entry => {
+            if(!entry.isIntersecting){
+                nav.classList.add('nav-scrolled')
+            } else{
+                nav.classList.remove('nav-scrolled')
+            }
+        })
+    }, headerOptions)
+
+    headerObserver.observe(header)
+}
+
 scrollItems();
 navSlide();
 dropdownClicker()

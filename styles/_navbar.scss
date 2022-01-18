@@ -10,9 +10,18 @@ nav {
   justify-content: space-between;
   color: $white;
   z-index: 3;
+  transition: 250ms ease;
 
   @include miniLaptop {
     padding: 0 2.5vw;
+  }
+
+  &.nav-scrolled {
+    background: rgba($blue, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 250ms ease;
   }
 
   .nav-logo {
@@ -41,10 +50,11 @@ nav {
     gap: 2rem;
     list-style: none;
     position: relative;
+    z-index: 2;
 
     @include mini {
       background: rgba($blue, 1);
-      position: absolute;
+      position: fixed;
       flex-direction: column;
       width: 100vw;
       left: 0;
@@ -176,6 +186,45 @@ nav {
 
     .line3 {
       width: 33%;
+    }
+  }
+}
+
+nav.dark-nav {
+  .nav-logo {
+    color: $black;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .nav-links {
+    li {
+      a {
+        color: $black;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+      ul {
+        li {
+          a {
+            color: $white;
+
+            &:hover {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dark-burger {
+    div {
+      background: $black;
     }
   }
 }

@@ -15,7 +15,7 @@
       rgba(#000000, 0.9),
       rgba(#000000, 0.3)
     ),
-    url("/cit/assets/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat center;
+    url("/cit/assets/bckgr.jpg") no-repeat center;
   background-size: cover;
 
   @include mini {
@@ -101,18 +101,6 @@
 
       @include phone {
         width: 100%;
-      }
-    }
-
-    a {
-      color: $blue;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      transition: 250ms ease;
-
-      &:hover {
-        color: #1d3c49;
       }
     }
   }
