@@ -29,7 +29,6 @@ const navSlide = () =>{
     const nav = document.querySelector('.nav-links');
     const burger = document.querySelector('.nav-burger');
     const navLinks = document.querySelectorAll('.nav-links li');
-    const body = document.querySelector('body');
 
     burger.addEventListener('click', () =>{
         nav.classList.toggle('show-nav');
@@ -163,7 +162,6 @@ const tkGalleryPreview = () => {
 
 const vestGalleryPreview = () => {
     const galleryImages = document.querySelectorAll('.gallery__container img');
-    const galleryTitles = document.querySelectorAll('.gallery__container h4');
     const modal = document.querySelector('.modal');
     const modalImg = document.querySelector('.modal-image');
     const modalTitle = document.querySelector('.modal h4');
